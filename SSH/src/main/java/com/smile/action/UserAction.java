@@ -18,6 +18,15 @@ public class UserAction extends ActionSupport implements ModelDriven<User>,Reque
 	private Map<String, Object> request;
 	
 	@Override
+	public void validate() {
+		if(!user.getPassWord().equals("123456")) {
+			addFieldError("password", "密码输入错误");
+		}else if (!user.getUserName().equals("admin")) {
+			addFieldError("username", "账号输入错误");
+		}
+	}
+	
+	@Override
 	public String execute() throws Exception {
 		if(user.getUserName().equals("admin")&&user.getPassWord().equals("123456")) {
 			//将数据存储到request域中
