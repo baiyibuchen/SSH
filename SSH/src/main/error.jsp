@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登录失败</title>
+<title>Insert title here</title>
 </head>
 <body>
 	ERROR!
+	${session.s1 }
 </body>
 </html>

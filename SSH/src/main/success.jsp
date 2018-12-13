@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登录成功</title>
+<title>Insert title here</title>
 </head>
 <body>
 	SUCCESS!
+	${requestScope.r1 }
 </body>
 </html>
