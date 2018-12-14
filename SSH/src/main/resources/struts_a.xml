@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 配置常量 -->
+	<!-- action的后缀 -->
+	<constant name="struts.action.extension" value="do,action"/>
+	
+	<!-- 开发者模式 -->
+	<constant name="struts.devMode" value="true"/>
+	
+	<!-- 动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<package name="mya" namespace="/" extends="my">
+		<action name="person" class="com.smile.action.PersonAction" method="{1}">
+			<result name="success">success.jsp</result>
+		</action>
+	</package>
+</struts>

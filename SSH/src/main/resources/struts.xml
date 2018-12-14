@@ -3,11 +3,28 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+
 	<package name="my" namespace="/" extends="struts-default">
 		<action name="user" class="com.smile.action.UserAction" method="execute">
+		<interceptor-ref name="myStatck"/>
 			<result name="success">success.jsp</result>
 			<result name="error">error.jsp</result>
 			<result name="input">input.jsp</result>
 		</action>
+		
+		<!-- 配置拦截器 -->
+		<interceptors>
+			<!-- 配置自定义的拦截器 -->
+			<interceptor name="RightInterceptor" class="com.smile.util.RightInterceptor"/>
+			<interceptor-stack name="myStatck">
+				<!-- 注入struts的拦截器 -->
+				<interceptor-ref name="defaultStack"/>
+				<!-- 注入自定义拦截器 -->
+				<interceptor-ref name="RightInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+		
 	</package>
+	<include file="struts_a.xml"/>
+	
 </struts>
